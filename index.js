@@ -6,7 +6,7 @@ const port = process.env.PORT || 4000;
 const app = express();
 
 app.get('/', (req, res) => {
-    const login="<h1>get list:</h1>/getlogin?usernim=&keynim<br>/getbio?tokenauth=<br>/absen?code=&nim=";
+    const login="<h1>get list:</h1>/getlogin?usernim=&keynim=<br>/getbio?tokenauth=<br>/absen?code=&nim=<br>/jadwal?tokenauth=&nim=&semsterj=&tahunj=<br>/khs?tokenauth=&nim=&semsterk=&tahunk=<br>/transkripnilai?tokenauth=&nim=";
     res.send(login);
 });
 
@@ -33,6 +33,20 @@ app.get('/jadwal', async (req, res) => {
     const jadwalcek = await LoginUAY.functionapiJadwal(tokenauth, nim, semsterj, tahunj );
     res.send(jadwalcek);
 });
+
+app.get('/transkripnilai', async (req, res) => {
+    const { tokenauth, nim} = req.query;
+    const transkrip = await LoginUAY.functiontranskripnilai(tokenauth, nim);
+    res.send(transkrip);
+});
+
+app.get('/khs', async (req, res) => {
+    const {tokenauth, nim, semsterk, tahunk} = req.query;
+    const khsku = await LoginUAY.functiontranskripnilai(tokenauth, nim, semsterk, tahunk);
+    res.send(khsku);
+})
+
+
 
 app.listen(port, function(){
     console.log(`server berjalan pada port ${port}`);
