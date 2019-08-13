@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const LoginUAY = require('./bin/functionapiamikom');
+const port = process.env.PORT || 4000;
 
 const app = express();
 
@@ -29,8 +30,10 @@ app.get('/absen', async (req, res) => {
 
 app.get('/jadwal', async (req, res) => {
     const { tokenauth, nim, semsterj, tahunj } = req.query;
-    const jadwalcek = await LoginUAY.functionapiJadwal(tokenauth, nim, semsterj, tahunj);
+    const jadwalcek = await LoginUAY.functionapiJadwal(tokenauth, nim, semsterj, tahunj );
     res.send(jadwalcek);
 });
 
-app.listen(3000);
+app.listen(port, function(){
+    console.log(`server berjalan pada port ${port}`);
+});
