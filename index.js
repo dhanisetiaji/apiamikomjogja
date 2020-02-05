@@ -6,7 +6,7 @@ const port = process.env.PORT || 4000;
 const app = express();
 
 app.get('/', (req, res) => {
-    const login="<h2>GET list API dari Amikom One (hanya untuk pembelajaran node JS):</h2>/getlogin?usernim=&keynim=<br>/getbio?tokenauth=<br>/absen?code=&nim=<br>/jadwal?tokenauth=&nim=&semsterj=&tahunj=<br>/khs?tokenauth=&nim=&semsterk=&tahunk=<br>/transkripnilai?tokenauth=&nim=";
+    const login="<h2>Get list API dari Amikom One (hanya untuk pembelajaran node JS):</h2>/getlogin?usernim=&keynim=<br>/getbio?tokenauth=<br>/absen?code=&nim=<br>/jadwal?tokenauth=&nim=&semsterj=&tahunj=<br>/khs?tokenauth=&nim=&semsterk=&tahunk=<br>/transkripnilai?tokenauth=&nim=";
     res.send(login);
 });
 
@@ -42,7 +42,7 @@ app.get('/transkripnilai', async (req, res) => {
 
 app.get('/khs', async (req, res) => {
     const {tokenauth, nim, semsterk, tahunk} = req.query;
-    const khsku = await LoginUAY.functiontranskripnilai(tokenauth, nim, semsterk, tahunk);
+    const khsku = await LoginUAY.functionapikhs(tokenauth, nim, semsterk, tahunk);
     res.send(khsku);
 })
 
