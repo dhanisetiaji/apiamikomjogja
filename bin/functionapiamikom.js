@@ -54,7 +54,7 @@ const functionapiJadwal = (tokenauth, npmjadwal, semesterjadwal, tahunjadwal) =>
 });
 
 const functionAbsensi = (codeabsen, nimabsen) => new Promise((resolve, reject) => {
-    const urlabsensi = 'http://kantin.amikom.ac.id/one/presensi_mobile/validate_ticket';
+    const urlabsensi = 'http://202.91.9.14:6000/api/presensi_mobile/validate_ticket';
     const bodyabsensi = {"data":`${codeabsen};${nimabsen}`}
 
     fetch(urlabsensi, {
@@ -62,7 +62,7 @@ const functionAbsensi = (codeabsen, nimabsen) => new Promise((resolve, reject) =
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
             'Content-Length': '28',
-            'Host': 'kantin.amikom.ac.id',
+            'Host': '202.91.9.14:6000',
             'Connection': 'Keep-Alive',
             'Accept-Encoding': 'gzip',
             'User-Agent': 'okhttp/3.10.0'             
