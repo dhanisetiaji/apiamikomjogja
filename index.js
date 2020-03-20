@@ -6,7 +6,7 @@ const port = process.env.PORT || 4000;
 const app = express();
 
 app.get('/', (req, res) => {
-    const login="<h2>Get list API dari Amikom One (hanya untuk pembelajaran node JS):</h2>/getlogin?usernim=&keynim=<br>/getbio?tokenauth=<br>/absen?code=&nim=<br>/jadwal?tokenauth=&nim=&semsterj=&tahunj=<br>/khs?tokenauth=&nim=&semsterk=&tahunk=<br>/transkripnilai?tokenauth=&nim=";
+    const login="<h2>Get API dari Amikom One (Unofficial):</h2>/getlogin?usernim=&keynim=<br>/getbio?tokenauth=<br>/absen?code=&nim=<br>/jadwal?tokenauth=&nim=&semsterj=&tahunj=<br>/khs?tokenauth=&nim=&semsterk=&tahunk=<br>/transkripnilai?tokenauth=&nim=<br><br>info : dhani.setiaji@students.amikom.ac.id";
     res.send(login);
 });
 
