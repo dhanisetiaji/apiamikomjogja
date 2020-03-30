@@ -30,7 +30,7 @@ app.get('/absen', async (req, res) => {
 
 app.post('/apipresensi', async (req, res) => {
     const { c, n } = req.query;
-    const absenku = await LoginUAY.functionapiabsen(c, n);
+    const apipresensiku = await LoginUAY.functionapiabsen(c, n);
     res.send(apipresensiku);
 });
 
