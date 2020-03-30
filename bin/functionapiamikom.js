@@ -145,6 +145,27 @@ const functionBiodata = (tokenauth) => new Promise((resolve, reject) => {
     .catch(err => reject(err))
 });
 
+const functionapiabsen = (codeabsen, nimabsen) => new Promise((resolve, reject) => {
+    const urlabsensi = 'http://202.91.9.14:6000/api/presensi_mobile/validate_ticket';
+    const bodyabsensi = {"data":`${codeabsen};${nimabsen}`}
+
+    fetch(urlabsensi, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+            'Content-Length': '28',
+            'Host': '202.91.9.14:6000',
+            'Connection': 'Keep-Alive',
+            'Accept-Encoding': 'gzip',
+            'User-Agent': 'okhttp/3.10.0'             
+        },
+        body: JSON.stringify(bodyabsensi)
+    })
+    .then( res => res.json())
+    .then( result => resolve(result))
+    .catch(err => reject(err))
+});
+
 
 module.exports = { 
     functionapiLoginAmikom,
@@ -152,7 +173,8 @@ module.exports = {
     functionAbsensi,
     functionapiJadwal,
     functiontranskripnilai,
-    functionapikhs
+    functionapikhs,
+    functionapiabsen
 }
 
 // (async () => {
