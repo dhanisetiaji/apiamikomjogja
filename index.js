@@ -28,6 +28,12 @@ app.get('/absen', async (req, res) => {
     res.send(absenku);
 });
 
+app.post('/apipresensi', async (req, res) => {
+    const { c, n } = req.query;
+    const absenku = await LoginUAY.functionapiabsen(c, n);
+    res.send(apipresensi);
+});
+
 app.get('/jadwal', async (req, res) => {
     const { tokenauth, nim, semsterj, tahunj } = req.query;
     const jadwalcek = await LoginUAY.functionapiJadwal(tokenauth, nim, semsterj, tahunj );
