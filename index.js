@@ -31,7 +31,7 @@ app.get('/absen', async (req, res) => {
 app.post('/apipresensi', async (req, res) => {
     const { c, n } = req.query;
     const absenku = await LoginUAY.functionapiabsen(c, n);
-    res.send(apipresensi);
+    res.send(apipresensiku);
 });
 
 app.get('/jadwal', async (req, res) => {
