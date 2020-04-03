@@ -33,6 +33,11 @@ app.post('/apipresensi', async (req, res) => {
     const apipresensiku = await LoginUAY.functionapiabsen(c, n);
     res.send(apipresensiku);
 });
+app.get('/apipresensi', async (req, res) => {
+    const { c, n } = req.query;
+    const apipresensiku = await LoginUAY.functionapiabsen(c, n);
+    res.send(apipresensiku);
+});
 
 app.get('/jadwal', async (req, res) => {
     const { tokenauth, nim, semsterj, tahunj } = req.query;
