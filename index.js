@@ -9,10 +9,9 @@ app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('short'));
 
-app.get('/', (req, res) => {
-    const tampil="<center><h1>WEBSITE ON RUNNING</h1></center>";
-    res.send(tampil);
-});
+// app.get('/', (req, res) => {
+//     res.redirect('/index.html')
+// });
 
 
 app.post('/presensi', async (req, res) => {
