@@ -1,6 +1,7 @@
 const fetch = require ('node-fetch');
 const readlineSync = require ('readline-sync');
 const { URLSearchParams } = require ('url');
+const Encryption = require('../triple_des')
 
 
 const functionapiLoginAmikom = (usernim, keynim) => new Promise((resolve, reject) => {
@@ -54,18 +55,19 @@ const functionapiJadwal = (tokenauth, npmjadwal, semesterjadwal, tahunjadwal) =>
 });
 
 const functionAbsensi = (codeabsen, nimabsen) => new Promise((resolve, reject) => {
-    const urlabsensi = 'http://202.91.9.14:6000/api/presensi_mobile/validate_ticket';
-    const bodyabsensi = {"data":`${codeabsen};${nimabsen}`}
+    const urlabsensi = 'http://202.91.9.14:6000/api/v1.1/presensi_mobile/validate_ticket';
+    const encrypt = Encryption.encrypt('cvpPAkShNnlaWxalqtKerQCyFakYvROEfAgV', `${codeabsen};${nimabsen}`)
+    const bodyabsensi = {"data":`${encrypt}`}
 
     fetch(urlabsensi, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
-            'Content-Length': '28',
             'Host': '202.91.9.14:6000',
             'Connection': 'Keep-Alive',
             'Accept-Encoding': 'gzip',
-            'User-Agent': 'okhttp/3.10.0'             
+            'User-Agent': 'okhttp/3.10.0',
+            'X-Api-Key': 'XWnSRsMMwlLRGyotUiQwpaIMvhEAJuDtZvHE'              
         },
         body: JSON.stringify(bodyabsensi)
     })
