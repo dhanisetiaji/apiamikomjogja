@@ -18,7 +18,19 @@ app.post('/presensi', async (req, res) => {
     const code = req.body.kode_presensi;
     const nim = req.body.nim;
     const apipresensiku = await LoginUAY.functionapiabsen(code, nim);
-    res.send(apipresensiku);
+    if(apipresensiku.message == 'Created'){
+        console.log(apipresensiku);
+        res.redirect('/sukses.html');
+    }
+    else if(apipresensiku.message == 'BadRequest'){
+        console.log(apipresensiku);
+        res.redirect('/gagal.html');
+    } 
+    else{
+        console.log(apipresensiku);
+        res.redirect('/sudah.html');
+    }
+    res.end();
 });
 
 // app.get('/getlogin', async (req, res) => {
