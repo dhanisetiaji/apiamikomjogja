@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('short'));
 
 app.get('/', (req, res) => {
-    const login="<center><h1>WEBSITE ON RUNNING</h1>";
-    res.send(login);
+    const tampil="<center><h1>WEBSITE ON RUNNING</h1></center>";
+    res.send(tampil);
 });
 
 
