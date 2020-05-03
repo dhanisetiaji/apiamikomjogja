@@ -11,7 +11,10 @@ const Encryption = require('./triple_des');
 
 const functionAbsensi = (codeabsen, nimabsen) => new Promise((resolve, reject) => {
     const urlabsensi = 'http://202.91.9.14:6000/api/v1.1/presensi_mobile/validate_ticket';
-    const encrypt = Encryption.encrypt('cvpPAkShNnlaWxalqtKerQCyFakYvROEfAgV', `${codeabsen};${nimabsen}`)
+    const encrypt = Encryption.encrypt('cvpPAkShNnlaWxalqtKerQCyFakYvROEfAgV', `${codeabsen};${nimabsen}`);
+    var decrypt = Encryption.decrypt('cvpPAkShNnlaWxalqtKerQCyFakYvROEfAgV', `${encrypt}`)
+    console.log(encrypt)
+    console.log(decrypt)
     const bodyabsensi = {"data":`${encrypt}`}
 
     fetch(urlabsensi, {

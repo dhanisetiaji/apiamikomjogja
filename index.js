@@ -14,23 +14,12 @@ app.use(morgan('short'));
 // });
 
 
-app.post('/presensi', async (req, res) => {
-    const code = req.body.kode_presensi;
+app.post('/api/presensi', async (req, res) => {
+    const code = req.body.code;
     const nim = req.body.nim;
-    const apipresensiku = await LoginUAY.functionapiabsen(code, nim);
-    if(apipresensiku.message == 'Created'){
-        console.log(apipresensiku);
-        res.redirect('/sukses.html');
-    }
-    else if(apipresensiku.message == 'BadRequest'){
-        console.log(apipresensiku);
-        res.redirect('/gagal.html');
-    } 
-    else{
-        console.log(apipresensiku);
-        res.redirect('/sudah.html');
-    }
-    res.end();
+    const apiamikom = await LoginUAY.functionapiabsen(code, nim);
+	console.log(apiamikom);
+    return res.send(apiamikom);
 });
 
 // app.get('/getlogin', async (req, res) => {
