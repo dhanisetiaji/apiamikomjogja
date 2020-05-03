@@ -4,3 +4,6 @@
 .fa-heart{
     color: red;
 }
+.btn.disabled, .btn:disabled {
+    opacity: 1;
+}
