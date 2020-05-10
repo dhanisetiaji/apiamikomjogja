@@ -1,5 +1,5 @@
 # apiamikomjogja
-Unofficial api amikom yogyakarta(for education only)
+Unofficial API Amikom yogyakarta (for education only)
 
 - Get Biodata
 - Get KHS
