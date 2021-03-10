@@ -1,5 +1,5 @@
 # apiamikomjogja
-Unofficial API Amikom yogyakarta (build with nodejs)
+Unofficial API Amikom yogyakarta
 
 - Get Biodata
 - Get KHS
